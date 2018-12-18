@@ -1,9 +1,11 @@
 import React , { Component } from 'react'
 import {connect} from 'react-redux'
+import '../App.css'
 import Buttons from "../components/Buttons"
 import Inputs from "../components/Input"
 import myActions from '../actions'
 import Display from '../components/Display'
+
 
 class Form extends Component {
     
@@ -24,6 +26,7 @@ class Form extends Component {
 
         let latitude = this.state.lat
         let longitude= this.state.lon
+
         onSubmit(latitude,longitude)  
 
 
@@ -44,8 +47,11 @@ class Form extends Component {
         
         return(    
         
-        <div>
-        <form onSubmit={this.handleSubmit}>
+    
+             <div className="wrapper"> 
+            <div className="main"> 
+            <div className="container"> 
+         <form onSubmit={this.handleSubmit}>
                   
         <Inputs    latitude={this.props.lat} longitude={this.props.lon} handleLatitude={this.handleClicklat} handlelongitude={this.handleClicklon} />
         <Buttons   btnAction ={this.props.btnAction}  />
@@ -55,8 +61,10 @@ class Form extends Component {
      </div>
       </form>
         </div> 
-        
-        
+        </div> 
+        </div> 
+   
+      
         )
     }
 }
